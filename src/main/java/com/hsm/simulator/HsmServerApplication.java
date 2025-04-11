@@ -1,4 +1,4 @@
-package com.prasadrahul.hsm;
+package com.hsm.simulator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
