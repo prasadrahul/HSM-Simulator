@@ -1,8 +1,6 @@
 # hsm-simulator
 A HSM simulator using SoftHSM and PKCS#11 for local testing of CloudHSM-like cryptographic operations.
 
-# hsm-simulator
-A HSM simulator using SoftHSM and PKCS#11 for local testing of CloudHSM-like cryptographic operations.
 
 # SoftHSM Wrapper - Java HSM Simulator
 
