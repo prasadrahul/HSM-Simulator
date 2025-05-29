@@ -19,6 +19,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Build React frontend and copy static assets
+        run: make frontend          
+
       - name: Build JAR using Maven
         run: mvn clean package -DskipTests
 
