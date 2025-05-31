@@ -99,7 +99,7 @@ public class CryptoUtils {
         }
     }
 
-    public String verifyMessageWithGivenKeyAlias(String message, String base64Signature, String keyAlias, String signatureAlgorithm, String hsmPin, AuthProvider hsmProvider) {
+    public String verifyMessageWithGivenKeyAlias(String message, String base64SignatureDecoded, String keyAlias, String signatureAlgorithm, String hsmPin, AuthProvider hsmProvider) {
         try {
             KeyStore keyStore = KeyStore.getInstance("PKCS11", hsmProvider);
             keyStore.load(null, hsmPin.toCharArray());
@@ -112,7 +112,6 @@ public class CryptoUtils {
             Signature signature = Signature.getInstance(signatureAlgorithm, hsmProvider);
             signature.initVerify(certificate.getPublicKey());
             signature.update(message.getBytes());
-            byte[] base64SignatureDecoded = Base64.getDecoder().decode(base64Signature.trim());
             return signature.verify(base64SignatureDecoded) ? "Message Verified Successfully" : "Message Verification Failed";
         } catch (Exception e) {
             throw new CryptoException("Verification failed with algorithm " + signatureAlgorithm + " : " + e.getMessage());

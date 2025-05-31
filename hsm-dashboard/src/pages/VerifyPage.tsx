@@ -37,7 +37,7 @@ import React, { useState, useEffect } from "react";
         const [verificationResult, setVerificationResult] = useState<string | null>(null);
 
         useEffect(() => {
-            axios.get("/api/slots").then((res) => {
+            axios.get("/api/v1/slots").then((res) => {
                 const slotsData = res.data.data.map((slot: any) => ({
                     slotIndex: parseInt(slot.slotHex, 16),
                     slotHex: slot.slotHex,
